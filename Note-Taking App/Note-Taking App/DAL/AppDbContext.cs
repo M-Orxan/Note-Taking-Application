@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Note_Taking_App.Models;
 
 namespace Note_Taking_App.DAL
 {
@@ -9,5 +10,7 @@ namespace Note_Taking_App.DAL
         {
 
         }
+
+        public DbSet<Note> Notes { get; set; }
     }
 }
