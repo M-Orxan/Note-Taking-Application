@@ -1,4 +1,5 @@
-﻿<div class="col-lg-12 grid-margin stretch-card">
+﻿@model Note
+<div class="col-lg-12 grid-margin stretch-card">
     <div class="card">
         <div class="card-body">
 
@@ -9,19 +10,33 @@
 
             <div class="col-md-6 grid-margin stretch-card">
                 <div class="card">
-                        <form class="forms-sample">
-                            <div class="form-group">
-                                <label for="exampleInputUsername1">Title</label>
-                                <input type="text" class="form-control" id="exampleInputUsername1">
-                            </div>
-                            <div class="form-group">
-                                <label for="exampleInputEmail1">Description</label>
-                                <textarea class="form-control" id="exampleTextarea1" rows="2"></textarea>
-                            </div>
+                    <form class="forms-sample" method="post">
+                        <div class="form-group">
+                            <label asp-for="Title">Title</label>
+                            <input asp-for="Title" class="form-control">
+                            <span asp-validation-for="Title"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="Description">Description</label>
+                            <textarea  asp-for="Title" class="form-control"  rows="2"></textarea>
+                            <span asp-validation-for="Description"></span>
+
+                        </div>
+
+                        @*<div class="form-group">
+                            <label asp-for="Deadline">Deadline</label>
                             
-                            <button type="submit" class="btn btn-primary mr-2">Submit</button>
-                            <button class="btn btn-light">Cancel</button>
-                        </form>
+                            Dealine ucun kalendar olacaq
+
+                            <span asp-validation-for="Deadline"></span>
+
+                        </div>*@
+
+                       
+
+                        <button asp-action="Index" type="submit" class="btn btn-primary mr-2">Submit</button>
+                        <button asp-action="Index" class="btn btn-light">Cancel</button>
+                    </form>
                 </div>
             </div>
 
@@ -29,3 +44,7 @@
     </div>
 </div>
 
+
+@section Scripts{ 
+<partial name="_ValidationScriptsPartial"/>
+}

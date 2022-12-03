@@ -1,12 +1,11 @@
-﻿
-@model List<Note>
+﻿@model List<Note>
 
 
 <div class="col-lg-12 grid-margin stretch-card">
     <div class="card">
         <div class="card-body">
 
-            <div  class="d-flex justify-content-between align-items-center">
+            <div class="d-flex justify-content-between align-items-center">
                 <h4 class="card-title">My Notes</h4>
                 <a asp-action="Create" style="width:90px; margin-right:30px" class="btn btn-primary text-white">Create a new note</a>
 
@@ -17,36 +16,78 @@
                 <thead>
                     <tr>
                         <th>Title</th>
-                        <th>Created</th>
-                        <th>Deadline</th>
+                        @*<th>Created</th>
+                        <th>Deadline</th>*@
                         <th>Status</th>
                         <th>Actions</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>Jacob</td>
-                        <td>12 May 2017</td>
 
-                        <td>12 May 2017</td>
-                        <td><label class="badge badge-danger">Pending</label></td>
+                    @foreach (Note note in Model)
+                    {
+                        <tr>
+                            <td>@note.Title</td>
+                            @*<td>@note.Created</td>
 
-                         <td>
-                          
-                        <button 
-                            class="btn p-0 dropdown-toggle hide-arrow" type="button" id="dropdownMenuOutlineButton2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
-                        > </button>
-                        <div class="dropdown-menu" aria-labelledby="dropdownMenuOutlineButton2">
-                          
-                          <a class="dropdown-item" href="#">Detail</a>
-                          <a class="dropdown-item" href="#">Update</a>
-                          <a class="dropdown-item" href="#">Delete</a>
-                          
-                        </div>
-                        </td>
+                        <td>@note.Deadline</td>*@
+                            <td>
+                                @if (note.IsCompleted)
+                                {
+                                    <label class="badge badge-success">Completed</label>
+                                }
+
+                                else
+                                {
+                                    <label class="badge badge-warning">In progress</label>
+                                }
 
 
-                    </tr>
+                            </td>
+
+                            <td>
+
+                                <button class="btn p-0 dropdown-toggle hide-arrow" type="button" id="dropdownMenuOutlineButton2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> </button>
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuOutlineButton2">
+
+                                    <a class="dropdown-item" asp-action="Detail">Detail</a>
+                                    <a class="dropdown-item" asp-action="Update">Update</a>
+                                    <a class="dropdown-item" asp-action="Delete">Delete</a>
+
+                                </div>
+                            </td>
+
+
+                        </tr>
+
+                    }
+
+
+
+
+                    @* <tr>
+                    <td>Jacob</td>
+                    <td>12 May 2017</td>
+
+                    <td>12 May 2017</td>
+                    <td><label class="badge badge-danger">Pending</label></td>
+
+                    <td>
+
+                    <button
+                    class="btn p-0 dropdown-toggle hide-arrow" type="button" id="dropdownMenuOutlineButton2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+                    > </button>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuOutlineButton2">
+
+                    <a class="dropdown-item" href="#">Detail</a>
+                    <a class="dropdown-item" href="#">Update</a>
+                    <a class="dropdown-item" href="#">Delete</a>
+
+                    </div>
+                    </td>
+
+
+                    </tr>*@
 
                 </tbody>
             </table>
