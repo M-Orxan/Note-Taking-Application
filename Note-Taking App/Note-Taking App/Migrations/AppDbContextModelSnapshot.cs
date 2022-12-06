@@ -35,6 +35,9 @@ namespace Note_Taking_App.Migrations
                     b.Property<bool>("IsCompleted")
                         .HasColumnType("bit");
 
+                    b.Property<bool>("IsDeactive")
+                        .HasColumnType("bit");
+
                     b.Property<bool>("IsInProgress")
                         .HasColumnType("bit");
 

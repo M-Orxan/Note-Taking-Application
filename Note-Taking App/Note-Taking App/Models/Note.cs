@@ -9,5 +9,6 @@
         
         public bool IsCompleted { get; set; }
         public bool IsInProgress { get; set; }
+        public bool IsDeactive { get; set; }
     }
 }

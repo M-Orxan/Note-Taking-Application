@@ -12,29 +12,22 @@
                 <div class="card">
                     <form class="forms-sample" method="post">
                         <div class="form-group">
-                            <label asp-for="Title">Title</label>
+                            <label >Title</label>
                             <input asp-for="Title" class="form-control">
-                            <span asp-validation-for="Title"></span>
+                            <span asp-validation-for="Title" class="text-danger"></span>
                         </div>
                         <div class="form-group">
-                            <label asp-for="Description">Description</label>
-                            <textarea  asp-for="Title" class="form-control"  rows="2"></textarea>
+                            <label >Description</label>
+                            <input  asp-for="Description" class="form-control"  rows="2"/>
                             <span asp-validation-for="Description"></span>
 
                         </div>
 
-                        @*<div class="form-group">
-                            <label asp-for="Deadline">Deadline</label>
-                            
-                            Dealine ucun kalendar olacaq
-
-                            <span asp-validation-for="Deadline"></span>
-
-                        </div>*@
+                       
 
                        
 
-                        <button asp-action="Index" type="submit" class="btn btn-primary mr-2">Submit</button>
+                        <button  type="submit" class="btn btn-primary mr-2">Submit</button>
                         <button asp-action="Index" class="btn btn-light">Cancel</button>
                     </form>
                 </div>

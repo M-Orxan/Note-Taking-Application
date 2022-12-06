@@ -17,42 +17,179 @@ namespace Note_Taking_App.Controllers
         public async Task<IActionResult> Index()
         {
 
-            List<Note> notes = await _db.Notes.ToListAsync();
+            List<Note> notes = await _db.Notes.Where(x => x.IsDeactive==false).ToListAsync();
             return View(notes);
         }
 
+
         public IActionResult Create()
         {
+
             return View();
         }
 
-
         [HttpPost]
-        [AutoValidateAntiforgeryToken]
-
-        public async Task<IActionResult>Create(Note note)
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Create(Note note)
         {
 
-            
+            if (note.Title == null)
+            {
+                ModelState.AddModelError("Title", "Title must be");
+                return View(note);
+            }
+
+
             bool isExists = await _db.Notes.AnyAsync(x => x.Title == note.Title);
 
             if (isExists)
             {
                 ModelState.AddModelError("Title", "There is already note under this title. Please change the title");
-                return View(note);  
-
+                return View(note);
             }
 
-            note.IsInProgress = true;
-            note.IsCompleted = false;
-            await _db.Notes.AddAsync(note);
+
+
+            await _db.AddAsync(note);
             await _db.SaveChangesAsync();
+            return RedirectToAction("Index");
+        }
+
+
+        public async Task<IActionResult> Update(int? id)
+        {
+            if (id == 0)
+            {
+                return NotFound();
+            }
+
+            Note? note = await _db.Notes.FirstOrDefaultAsync(x => x.Id == id);
+            if (note == null)
+            {
+                return BadRequest();
+            }
+
+            return View(note);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+
+        public async Task<IActionResult> Update(Note note, int? id)
+        {
+            if (id == 0)
+            {
+                return NotFound();
+            }
+
+            Note? dBNote = await _db.Notes.FirstOrDefaultAsync(x => x.Id == id);
+            if (dBNote == null)
+            {
+                return BadRequest();
+            }
+
+            bool isExists = await _db.Notes.AnyAsync(x => x.Title == note.Title && x.Id != id);
+
+            if (isExists)
+            {
+                ModelState.AddModelError("Title", "There is already note under this title. Please change the title");
+                return View(note);
+            }
+
+            if (note.Title == null)
+            {
+                ModelState.AddModelError("Title", "Title must be");
+                return View(note);
+            }
+
+            dBNote.Title = note.Title;
+            dBNote.Description = note.Description;
+            await _db.SaveChangesAsync();
+
 
 
             return RedirectToAction("Index");
         }
 
 
+
+        public async Task<IActionResult> Detail(int id)
+        {
+
+
+            if (id == 0)
+            {
+                return NotFound();
+            }
+
+
+            Note? note = await _db.Notes.FirstOrDefaultAsync(x => x.Id == id);
+
+
+            if (note == null)
+            {
+                return BadRequest();
+            }
+
+
+
+            return View(note);
+
+        }
+
+
+        //public async Task<IActionResult> Delete(int id)
+        //{
+        //    if (id == 0)
+        //    {
+        //        return NotFound();
+        //    }
+
+
+        //    Note? note = await _db.Notes.FirstOrDefaultAsync(x => x.Id == id);
+
+
+        //    if (note == null)
+        //    {
+        //        return BadRequest();
+        //    }
+
+        //    return View(note);
+
+        //}
+
+
+
+        //[HttpPost]
+        //[AutoValidateAntiforgeryToken]
+
+        //[ActionName("Delete")]
+      
+        public async Task<IActionResult> Delete(int id)
+        {
+            if (id == 0)
+            {
+                return NotFound();
+            }
+
+
+            Note? note = await _db.Notes.FirstOrDefaultAsync(x => x.Id == id);
+
+
+            if (note == null)
+            {
+                return BadRequest();
+            }
+
+            
+            
+                note.IsDeactive = true;
+            
+
+            await _db.SaveChangesAsync();
+            return RedirectToAction("Index");
+
+        }
 
     }
 }

@@ -1,0 +1,60 @@
+﻿@model Note
+
+
+<div >
+
+    
+    <div class="card">
+        
+        <div class="card-body">
+
+           <div class="d-flex justify-content-between align-items-center">
+                <h4 class="card-title">@Model.Title</h4>
+
+            </div>
+
+
+            <div>
+                <table class="table">
+                    <thead > 
+                        <tr>
+                            
+                            <th>Title</th>
+                            
+                            <th >Description</th>
+                        </tr>
+                    </thead>
+                    <tbody class="table-border-bottom-0"
+>
+
+
+                        <tr>
+                            
+                            <td>@Model.Title</td>
+                            
+                          
+
+
+                            <td>
+                                <p class="info-description">@Model.Description</p>
+
+                            </td>
+                        </tr>
+
+                    </tbody>
+                </table>
+            </div>
+
+            <a asp-action="Index" style=" margin:8px" class="btn btn-primary">Go Back</a>
+
+
+
+        </div>
+
+
+    </div>
+
+
+</div>
+
+
