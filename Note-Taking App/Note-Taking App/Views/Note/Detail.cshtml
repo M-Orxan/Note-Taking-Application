@@ -1,14 +1,14 @@
 ﻿@model Note
 
 
-<div >
+<div>
 
-    
+
     <div class="card">
-        
+
         <div class="card-body">
 
-           <div class="d-flex justify-content-between align-items-center">
+            <div class="d-flex justify-content-between align-items-center">
                 <h4 class="card-title">@Model.Title</h4>
 
             </div>
@@ -16,27 +16,33 @@
 
             <div>
                 <table class="table">
-                    <thead > 
+                    <thead>
                         <tr>
-                            
+
                             <th>Title</th>
-                            
-                            <th >Description</th>
+
+                            <th>Description</th>
                         </tr>
                     </thead>
-                    <tbody class="table-border-bottom-0"
->
+                    <tbody>
 
 
                         <tr>
-                            
+
                             <td>@Model.Title</td>
-                            
-                          
+
+
 
 
                             <td>
-                                <p class="info-description">@Model.Description</p>
+
+
+
+                                @Model.Description
+
+
+
+
 
                             </td>
                         </tr>
@@ -45,7 +51,7 @@
                 </table>
             </div>
 
-            <a asp-action="Index" style=" margin:8px" class="btn btn-primary">Go Back</a>
+            <a asp-action="Index" style=" margin:10px" class="btn btn-primary">Go Back</a>
 
 
 

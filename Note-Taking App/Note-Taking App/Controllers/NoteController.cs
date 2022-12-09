@@ -17,7 +17,7 @@ namespace Note_Taking_App.Controllers
         public async Task<IActionResult> Index()
         {
 
-            List<Note> notes = await _db.Notes.Where(x => x.IsDeactive==false).ToListAsync();
+            List<Note> notes = await _db.Notes.Where(x => x.IsDeactive == false).ToListAsync();
             return View(notes);
         }
 
@@ -40,7 +40,7 @@ namespace Note_Taking_App.Controllers
             }
 
 
-            bool isExists = await _db.Notes.AnyAsync(x => x.Title == note.Title);
+            bool isExists = await _db.Notes.Where(x=>x.IsDeactive==false).AnyAsync(x => x.Title == note.Title);
 
             if (isExists)
             {
@@ -48,6 +48,9 @@ namespace Note_Taking_App.Controllers
                 return View(note);
             }
 
+
+            note.IsInProgress = true;
+            note.CreatedDate = DateTime.Now;
 
 
             await _db.AddAsync(note);
@@ -69,6 +72,8 @@ namespace Note_Taking_App.Controllers
                 return BadRequest();
             }
 
+            ViewBag.Statusses = await _db.Notes.ToListAsync();
+
             return View(note);
         }
 
@@ -88,7 +93,13 @@ namespace Note_Taking_App.Controllers
                 return BadRequest();
             }
 
-            bool isExists = await _db.Notes.AnyAsync(x => x.Title == note.Title && x.Id != id);
+            if (note.Title == null)
+            {
+                ModelState.AddModelError("Title", "Title must be");
+                return View(note);
+            }
+
+            bool isExists = await _db.Notes.Where(x=>x.IsDeactive==false).AnyAsync(x => x.Title == note.Title && x.Id != id);
 
             if (isExists)
             {
@@ -96,14 +107,12 @@ namespace Note_Taking_App.Controllers
                 return View(note);
             }
 
-            if (note.Title == null)
-            {
-                ModelState.AddModelError("Title", "Title must be");
-                return View(note);
-            }
+            
 
             dBNote.Title = note.Title;
             dBNote.Description = note.Description;
+            dBNote.IsCompleted = note.IsCompleted;
+            dBNote.IsInProgress = note.IsInProgress;
             await _db.SaveChangesAsync();
 
 
@@ -154,7 +163,7 @@ namespace Note_Taking_App.Controllers
         //        return BadRequest();
         //    }
 
-        //    return View(note);
+        //    return RedirectToAction("Index");
 
         //}
 
@@ -164,7 +173,7 @@ namespace Note_Taking_App.Controllers
         //[AutoValidateAntiforgeryToken]
 
         //[ActionName("Delete")]
-      
+
         public async Task<IActionResult> Delete(int id)
         {
             if (id == 0)
@@ -181,11 +190,10 @@ namespace Note_Taking_App.Controllers
                 return BadRequest();
             }
 
-            
-            
-                note.IsDeactive = true;
-            
 
+
+
+            note.IsDeactive = true;
             await _db.SaveChangesAsync();
             return RedirectToAction("Index");
 

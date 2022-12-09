@@ -4,7 +4,7 @@
         <div class="card-body">
 
             <div class="d-flex justify-content-between align-items-center">
-                <h4 class="card-title">Create a new note</h4>
+                <h4 class="card-title">Update note</h4>
 
             </div>
 
@@ -12,22 +12,35 @@
                 <div class="card">
                     <form class="forms-sample" method="post">
                         <div class="form-group">
-                            <label >Title</label>
+                            <label asp-for="Title">Title</label>
                             <input asp-for="Title" class="form-control">
                             <span asp-validation-for="Title" class="text-danger"></span>
                         </div>
                         <div class="form-group">
-                            <label >Description</label>
-                            <input  asp-for="Description" class="form-control"  rows="2"/>
+                            <label asp-for="Description">Description</label>
+                            <input asp-for="Description" class="form-control" rows="2" />
                             <span asp-validation-for="Description"></span>
 
                         </div>
 
-                       
+                        <div class="mb-3">
+                            <label asp-for="IsCompleted" class="form-label" for="basic-default-fullname"></label>
+                            <input asp-for="IsCompleted" accept="image/*">
+                            <span asp-validation-for="IsCompleted" class="text-danger"></span>
+                        </div>
 
-                       
 
-                        <button  type="submit" class="btn btn-primary mr-2">Submit</button>
+                        <div class="mb-3">
+                            <label asp-for="IsInProgress" class="form-label" for="basic-default-fullname"></label>
+                            <input asp-for="IsInProgress" accept="image/*">
+                            <span asp-validation-for="IsInProgress" class="text-danger"></span>
+                        </div>
+
+
+
+
+
+                        <button type="submit" class="btn btn-primary mr-2">Submit</button>
                         <button asp-action="Index" class="btn btn-light">Cancel</button>
                     </form>
                 </div>
@@ -38,6 +51,6 @@
 </div>
 
 
-@section Scripts{ 
-<partial name="_ValidationScriptsPartial"/>
+@section Scripts{
+    <partial name="_ValidationScriptsPartial" />
 }

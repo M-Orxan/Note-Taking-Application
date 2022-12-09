@@ -12,5 +12,10 @@ namespace Note_Taking_App.DAL
         }
 
         public DbSet<Note> Notes { get; set; }
+        
+        
+       
+        
+        
     }
 }

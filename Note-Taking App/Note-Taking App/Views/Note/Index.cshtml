@@ -16,9 +16,11 @@
                 <thead>
                     <tr>
                         <th>Title</th>
-                        @*<th>Created</th>
-                        <th>Deadline</th>*@
+
+                        @*                        <th>Deadline</th>
+                        *@
                         <th>Status</th>
+                        <th>Created</th>
                         <th>Actions</th>
                     </tr>
                 </thead>
@@ -28,23 +30,24 @@
                     {
                         <tr>
                             <td>@note.Title</td>
-                            @*<td>@note.Created</td>
 
-                        <td>@note.Deadline</td>*@
+
+                            @* <td>@note.Deadline</td>*@
                             <td>
                                 @if (note.IsCompleted)
                                 {
                                     <label class="badge badge-success">Completed</label>
                                 }
 
-                                else
+                                @if (note.IsInProgress)
+
                                 {
                                     <label class="badge badge-warning">In progress</label>
                                 }
 
 
                             </td>
-
+                            <td>@note.CreatedDate</td>
                             <td>
 
                                 <button class="btn p-0 dropdown-toggle hide-arrow" type="button" id="dropdownMenuOutlineButton2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> </button>
