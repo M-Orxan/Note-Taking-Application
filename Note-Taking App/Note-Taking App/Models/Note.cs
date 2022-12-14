@@ -1,4 +1,6 @@
-﻿namespace Note_Taking_App.Models
+﻿using System.ComponentModel.DataAnnotations.Schema;
+
+namespace Note_Taking_App.Models
 {
     public class Note
     {
@@ -11,11 +13,12 @@
         public bool IsInProgress { get; set; }
 
         public bool IsDeactive { get; set; }
-
-        public DateTime CreatedDate { get; set; }
-
         
-      
+        public DateTime CreatedDate { get; set; }
+        public DateTime Deadline { get; set; }
+        
+
+
 
 
 

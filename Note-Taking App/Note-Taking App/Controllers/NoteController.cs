@@ -50,7 +50,16 @@ namespace Note_Taking_App.Controllers
 
 
             note.IsInProgress = true;
+
+
             note.CreatedDate = DateTime.Now;
+
+
+            if (note.Deadline <= DateTime.Now)
+            {
+                ModelState.AddModelError("Deadline", "Deadline can not be earlier than the current time");
+                return View(note);
+            }
 
 
             await _db.AddAsync(note);
@@ -107,12 +116,29 @@ namespace Note_Taking_App.Controllers
                 return View(note);
             }
 
-            
+           
+
+
+           
 
             dBNote.Title = note.Title;
             dBNote.Description = note.Description;
             dBNote.IsCompleted = note.IsCompleted;
             dBNote.IsInProgress = note.IsInProgress;
+            dBNote.Deadline = note.Deadline;
+
+            if (dBNote.IsInProgress)
+            {
+                if (note.Deadline <= DateTime.Now)
+                {
+                    ModelState.AddModelError("Deadline", "Deadline can not be earlier than the current time");
+                    return View(note);
+                }
+            }
+            
+            
+
+
             await _db.SaveChangesAsync();
 
 
@@ -147,32 +173,7 @@ namespace Note_Taking_App.Controllers
         }
 
 
-        //public async Task<IActionResult> Delete(int id)
-        //{
-        //    if (id == 0)
-        //    {
-        //        return NotFound();
-        //    }
-
-
-        //    Note? note = await _db.Notes.FirstOrDefaultAsync(x => x.Id == id);
-
-
-        //    if (note == null)
-        //    {
-        //        return BadRequest();
-        //    }
-
-        //    return RedirectToAction("Index");
-
-        //}
-
-
-
-        //[HttpPost]
-        //[AutoValidateAntiforgeryToken]
-
-        //[ActionName("Delete")]
+       
 
         public async Task<IActionResult> Delete(int id)
         {
