@@ -9,13 +9,11 @@ namespace Note_Taking_App.Models
         public string? Title { get; set; }
         public string? Description { get; set; }
 
-        public bool IsCompleted { get; set; }
-        public bool IsInProgress { get; set; }
-
+       
         public bool IsDeactive { get; set; }
         
         public DateTime CreatedDate { get; set; }
-        public DateTime Deadline { get; set; }
+        
         
 
 

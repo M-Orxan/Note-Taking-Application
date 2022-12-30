@@ -33,16 +33,22 @@
                 <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
                     <span class="mdi mdi-menu"></span>
                 </button>
+
                 <div class="search-field d-none d-xl-block">
-                    <form class="d-flex align-items-center h-100" action="#">
-                        <div class="input-group">
-                            <div class="input-group-prepend bg-transparent">
-                                <i class="input-group-text border-0 mdi mdi-magnify"></i>
+
+                    
+                        <form class="d-flex align-items-center h-100" action="#">
+                            <div class="input-group">
+                                <div class="input-group-prepend bg-transparent">
+                                    <i class="input-group-text border-0 mdi mdi-magnify"></i>
+                                </div>
+                                <input id="search" type="text" class="form-control bg-transparent border-0" placeholder="Search notes">
                             </div>
-                            <input type="text" class="form-control bg-transparent border-0" placeholder="Search notes">
-                        </div>
-                    </form>
+                        </form>
+                  
+
                 </div>
+
                 <ul class="navbar-nav navbar-nav-right">
                     <li class="nav-item  dropdown d-none d-md-block">
                         <a class="nav-link dropdown-toggle" id="reportDropdown" href="#" data-toggle="dropdown" aria-expanded="false"> Reports </a>
@@ -51,13 +57,7 @@
                                 <i class="mdi mdi-file-pdf mr-2"></i>PDF
                             </a>
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="#">
-                                <i class="mdi mdi-file-excel mr-2"></i>Excel
-                            </a>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="#">
-                                <i class="mdi mdi-file-word mr-2"></i>doc
-                            </a>
+
                         </div>
                     </li>
 
@@ -65,7 +65,7 @@
                     <li class="nav-item nav-profile dropdown">
                         <a class="nav-link" id="profileDropdown" href="#">
                             <div class="nav-profile-img">
-                                <img  src="~/assets/images/faces/Orxan.jpg"/>
+                                <img src="~/assets/images/faces/Orxan.jpg" />
                             </div>
                             <div class="nav-profile-text">
                                 <p class="mb-1 text-black">Orxan Mustafayev</p>
@@ -81,7 +81,7 @@
                             </a>
                         </div>
                     </li>
-
+                </ul>
 
             </div>
         </nav>
@@ -91,36 +91,24 @@
             <nav class="sidebar sidebar-offcanvas" id="sidebar">
                 <ul class="nav">
 
-                    <li class="nav-item">
-                        <a class="nav-link" asp-controller="Home" asp-action="Index">
-                            <span class="icon-bg"><i class="mdi mdi-home"></i></span>
-                            <span class="menu-title">Home</span>
-                        </a>
-                    </li>
 
-                   
 
                     <li class="nav-item ">
-                        <a class="nav-link" asp-controller="Note" asp-action="Index">
+                        <a class="nav-link" asp-controller="Notes" asp-action="Index">
                             <span class="icon-bg"><i class="mdi mdi-note-outline"></i></span>
                             <span class="menu-title">Notes</span>
                         </a>
                     </li>
 
-                    <li class="nav-item ">
-                        <a class="nav-link" asp-controller="Lazimsiz" asp-action="Index">
-                            <span class="icon-bg"><i class="mdi mdi-note-outline"></i></span>
-                            <span class="menu-title">Lazimsiz</span>
-                        </a>
-                    </li>
+
                 </ul>
             </nav>
             <!-- partial -->
             <div class="main-panel">
+                
                 <div class="content-wrapper">
-
                     @RenderBody()
-                </div>
+               </div>
                 <!-- content-wrapper ends -->
                 <!-- partial:partials/_footer.html -->
                 <footer class="footer">
@@ -153,7 +141,31 @@
     <!-- Custom js for this page -->
     <script src="~/assets/js/dashboard.js"></script>
     <!-- End custom js for this page -->
-        @RenderSection("Scripts", false)
+    @RenderSection("Scripts", false)
 
 </body>
 </html>
+
+@section Scripts{
+
+
+
+    <script>
+        $(document).on("keyup", "#search", function() {
+            $.ajax({
+                url: "/Note/Search/",
+                type: "get",
+                data: {
+                    "key": $("#search").val()
+                },
+
+                success: function(res) {
+                    $("searchList").remove()
+                    $("#searchList").append(res)
+
+                }
+            });
+        });
+
+    </script>
+ }

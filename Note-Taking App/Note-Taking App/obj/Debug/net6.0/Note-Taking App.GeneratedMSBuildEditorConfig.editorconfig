@@ -15,36 +15,28 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = C:\Users\HP\Desktop\Projects\Note-Taking App\Note-Taking-Application\Note-Taking App\Note-Taking App
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/Users/HP/Desktop/Projects/Note-Taking App/Note-Taking-Application/Note-Taking App/Note-Taking App/Views/Home/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
+[C:/Users/HP/Desktop/Projects/Note-Taking App/Note-Taking-Application/Note-Taking App/Note-Taking App/Views/Notes/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTm90ZXNcQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/HP/Desktop/Projects/Note-Taking App/Note-Taking-Application/Note-Taking App/Note-Taking App/Views/Home/Privacy.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
+[C:/Users/HP/Desktop/Projects/Note-Taking App/Note-Taking-Application/Note-Taking App/Note-Taking App/Views/Notes/Detail.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTm90ZXNcRGV0YWlsLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/HP/Desktop/Projects/Note-Taking App/Note-Taking-Application/Note-Taking App/Note-Taking App/Views/Lazimsiz/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTGF6aW1zaXpcSW5kZXguY3NodG1s
+[C:/Users/HP/Desktop/Projects/Note-Taking App/Note-Taking-Application/Note-Taking App/Note-Taking App/Views/Notes/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTm90ZXNcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/HP/Desktop/Projects/Note-Taking App/Note-Taking-Application/Note-Taking App/Note-Taking App/Views/Note/Create.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTm90ZVxDcmVhdGUuY3NodG1s
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/HP/Desktop/Projects/Note-Taking App/Note-Taking-Application/Note-Taking App/Note-Taking App/Views/Note/Detail.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTm90ZVxEZXRhaWwuY3NodG1s
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/HP/Desktop/Projects/Note-Taking App/Note-Taking-Application/Note-Taking App/Note-Taking App/Views/Note/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTm90ZVxJbmRleC5jc2h0bWw=
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/HP/Desktop/Projects/Note-Taking App/Note-Taking-Application/Note-Taking App/Note-Taking App/Views/Note/Update.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTm90ZVxVcGRhdGUuY3NodG1s
+[C:/Users/HP/Desktop/Projects/Note-Taking App/Note-Taking-Application/Note-Taking App/Note-Taking App/Views/Notes/Update.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTm90ZXNcVXBkYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/HP/Desktop/Projects/Note-Taking App/Note-Taking-Application/Note-Taking App/Note-Taking App/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/HP/Desktop/Projects/Note-Taking App/Note-Taking-Application/Note-Taking App/Note-Taking App/Views/Shared/_GlobalSearchPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9HbG9iYWxTZWFyY2hQYXJ0aWFsLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/HP/Desktop/Projects/Note-Taking App/Note-Taking-Application/Note-Taking App/Note-Taking App/Views/Shared/_ValidationScriptsPartial.cshtml]

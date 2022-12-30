@@ -261,3 +261,4 @@ C:\Users\HP\Desktop\Projects\Note-Taking App\Note-Taking-Application\Note-Taking
 C:\Users\HP\Desktop\Projects\Note-Taking App\Note-Taking-Application\Note-Taking App\Note-Taking App\bin\Debug\net6.0\runtimes\win\lib\net6.0\System.Drawing.Common.dll
 C:\Users\HP\Desktop\Projects\Note-Taking App\Note-Taking-Application\Note-Taking App\Note-Taking App\bin\Debug\net6.0\runtimes\win\lib\net6.0\System.Security.Cryptography.ProtectedData.dll
 C:\Users\HP\Desktop\Projects\Note-Taking App\Note-Taking-Application\Note-Taking App\Note-Taking App\bin\Debug\net6.0\runtimes\win\lib\net6.0\System.Windows.Extensions.dll
+C:\Users\HP\Desktop\Projects\Note-Taking App\Note-Taking-Application\Note-Taking App\Note-Taking App\bin\Debug\net6.0\System.Reflection.MetadataLoadContext.dll

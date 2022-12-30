@@ -33,19 +33,10 @@ namespace Note_Taking_App.Migrations
                     b.Property<DateTime>("CreatedDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<DateTime>("Deadline")
-                        .HasColumnType("datetime2");
-
                     b.Property<string>("Description")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<bool>("IsCompleted")
-                        .HasColumnType("bit");
-
                     b.Property<bool>("IsDeactive")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("IsInProgress")
                         .HasColumnType("bit");
 
                     b.Property<string>("Title")
